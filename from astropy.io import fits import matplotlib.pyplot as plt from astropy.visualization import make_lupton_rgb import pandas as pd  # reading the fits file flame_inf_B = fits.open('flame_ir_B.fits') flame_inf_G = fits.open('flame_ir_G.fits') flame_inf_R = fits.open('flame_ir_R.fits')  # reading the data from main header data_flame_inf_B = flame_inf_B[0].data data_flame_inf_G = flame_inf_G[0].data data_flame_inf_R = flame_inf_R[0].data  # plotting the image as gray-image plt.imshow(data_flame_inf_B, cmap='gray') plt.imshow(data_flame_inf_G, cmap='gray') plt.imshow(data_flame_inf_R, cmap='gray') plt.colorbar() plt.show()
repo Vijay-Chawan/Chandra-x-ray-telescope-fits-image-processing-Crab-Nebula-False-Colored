@@ -1,0 +1,15 @@
+from astropy.io import fits
+import matplotlib.pyplot as plt
+from astropy.visualization import make_lupton_rgb
+import pandas as pd
+
+# reading the fits file
+crab_nebula = fits.open('crab_nebula.fits')
+
+# reading the data from main header
+data_crab_nebula = crab_nebula[0].data
+
+# plotting the image as gray-image
+plt.imshow(data_crab_nebula, cmap='gray')
+plt.colorbar()
+plt.show()
